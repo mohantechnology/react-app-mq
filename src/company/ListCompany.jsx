@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch, NavLink, useLocation } from "react-router-dom";
-// import Button from "@mui/material/Button";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import TableComponent from "../component/TableComponent";
 import DeleteIcon from '@mui/icons-material/Delete';
-// import Button as MuiButton from "@mui/material/Button";
 import AddIcon from '@mui/icons-material/Add';
 import { Input, Button, Checkbox } from "antd";
 import sendRequest from '../js/sendRequest';
@@ -73,7 +69,6 @@ let rowFieldDataName = [
   "title",
   "cId",
   "createdAt",
-
   "action",
 ];
 
@@ -90,7 +85,7 @@ export default function ({ }) {
 
 
   // load  data from api 
-  async function loadPageData(username, password) {
+  async function loadPageData() {
 
     try {
       // set loader 
@@ -143,13 +138,13 @@ export default function ({ }) {
         companyList: "yes" // add this field to get updated list in response 
       });
 
-          // set loader 
-          setPageData(<CircularLoader />);
+      // set loader 
+      setPageData(<CircularLoader />);
       let responseData = await sendRequest.delete(param, url, "application/json");
-      responseData = JSON.parse(responseData); 
+      responseData = JSON.parse(responseData);
       toast.success(responseData.message)
       diplayPage(responseData.data)
-     
+
     }
     catch (error) {
       console.error(error);
@@ -183,119 +178,4 @@ export default function ({ }) {
       <br />
     </div>
   );
-}
-// let companyList = [
-//   {
-//     "id": 4,
-//     "title": "AGRAWA",
-//     "cId": "U01122MP1991PT s",
-//     "createdAt": "2022-08-31T08:51:15.598Z",
-//     "updatedAt": "2022-08-31T08:51:15.598Z"
-//   },
-//   {
-//     "id": 8,
-//     "title": "asdas",
-//     "cId": "U01122MP1991PTC0a06645U01122 ",
-//     "createdAt": "2022-08-31T08:51:54.276Z",
-//     "updatedAt": "2022-08-31T08:51:54.276Z"
-//   },
-//   {
-//     "id": 9,
-//     "title": "josn compnaay",
-//     "cId": "12324 json",
-//     "createdAt": "2022-08-31T08:52:19.184Z",
-//     "updatedAt": "2022-08-31T08:52:19.184Z"
-//   },
-//   {
-//     "id": 12,
-//     "title": "asdas",
-//     "cId": "U01122MP10112",
-//     "createdAt": "2022-08-31T08:52:46.637Z",
-//     "updatedAt": "2022-08-31T08:52:46.637Z"
-//   },
-//   {
-//     "id": 14,
-//     "title": "asdasa",
-//     "cId": "U01122MP10112a",
-//     "createdAt": "2022-08-31T08:54:04.548Z",
-//     "updatedAt": "2022-08-31T08:54:04.548Z"
-//   },
-//   {
-//     "id": 17,
-//     "title": "asdasa",
-//     "cId": "U01122MP10112aa",
-//     "createdAt": "2022-08-31T09:00:32.993Z",
-//     "updatedAt": "2022-08-31T09:00:32.993Z"
-//   },
-//   {
-//     "id": 19,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaa",
-//     "createdAt": "2022-08-31T09:00:58.632Z",
-//     "updatedAt": "2022-08-31T09:00:58.632Z"
-//   },
-//   {
-//     "id": 21,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaa",
-//     "createdAt": "2022-08-31T09:02:04.489Z",
-//     "updatedAt": "2022-08-31T09:02:04.489Z"
-//   },
-//   {
-//     "id": 23,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaas",
-//     "createdAt": "2022-02-31T09:16:16.689Z",
-//     "updatedAt": "2022-08-31T09:16:16.689Z"
-//   },
-//   {
-//     "id": 25,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaasds",
-//     "createdAt": "2022-08-31T09:16:23.885Z",
-//     "updatedAt": "2022-08-31T09:16:23.885Z"
-//   },
-//   {
-//     "id": 27,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaasdswa",
-//     "createdAt": "2022-08-31T09:18:07.921Z",
-//     "updatedAt": "2022-08-31T09:18:07.921Z"
-//   },
-//   {
-//     "id": 29,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaasdswaa",
-//     "createdAt": "2022-08-31T09:19:07.886Z",
-//     "updatedAt": "2022-08-31T09:19:07.886Z"
-//   },
-//   {
-//     "id": 30,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaasdswaas",
-//     "createdAt": "2022-08-31T09:19:15.243Z",
-//     "updatedAt": "2022-08-31T09:19:15.243Z"
-//   },
-//   {
-//     "id": 33,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaasdswaasa",
-//     "createdAt": "2022-08-31T09:19:25.927Z",
-//     "updatedAt": "2022-08-31T09:19:25.927Z"
-//   },
-//   {
-//     "id": 36,
-//     "title": "new company",
-//     "cId": "U01122MP10112aaaasdswaasaa",
-//     "createdAt": "2022-08-31T09:22:46.352Z",
-//     "updatedAt": "2022-08-31T09:22:46.352Z"
-//   },
-//   {
-//     "id": 38,
-//     "title": "josn compnaay",
-//     "cId": "12324 jsoan",
-//     "createdAt": "2022-08-31T09:32:27.323Z",
-//     "updatedAt": "2022-08-31T09:32:27.323Z"
-//   }
-// ]
-
+} 
