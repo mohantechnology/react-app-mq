@@ -11,8 +11,8 @@ This repository contain frontend project which is build using React.js.Backend o
 
 ## `Working`
  1) Search query is sended to Api  <br/>
- 2) Api send request to  Target endpoint  and fetch the result  and send back to fronend  <br/>
- 3) Froned Display the list   <br/>
+ 2) Api send request to  Target endpoint  and fetch the result  and send back to frontend  <br/>
+ 3) Fronted Display the list   <br/>
  4) After submitting company is stored to database       <br/>
  5) In list all page frontend send request to api to fetch all  added company and display it in the form of table
 
