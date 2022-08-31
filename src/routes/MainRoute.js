@@ -15,8 +15,8 @@ const ListCompany = React.lazy(() => import('../company/ListCompany'));
  
 
 
-function MainRoute() {
- console.log("inside main route")
+function MainRoute() { 
+  
   return (
     <div className="app-page">
       <ToastContainer />
