@@ -1,0 +1,48 @@
+.ad-lg-mnbx {
+  background-color: rgb(255, 255, 255);
+  color: rgb(38, 38, 38);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow: hidden;
+  border: none rgb(230, 235, 241);
+  border-radius: 8px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 8px;
+
+  max-width: 400px;
+  margin: auto;
+  margin-top: 5vh;
+  padding: 30px;
+}
+.ad-lg-tl-bx {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ad-lg-tl {
+  font-size: 23px;
+  font-weight: 500;
+}
+.ad-lg-hd-tl {
+  display: flex;
+  padding: 10px;
+  margin-left: 10px;
+  font-size: 22px;
+  font-weight: 500;
+  width: 180px;
+  /* border: 1px solid black; */
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+ 
+.ad-lg-inp-bx{
+  margin: 15px 0px ;
+}
+
+.ad-lg-inp-tl{
+color: rgb(89, 89, 89);
+}
+.ad-lg-inp-tl{
+  margin-bottom:4px; 
+
+}

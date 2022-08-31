@@ -8,14 +8,14 @@ import PageLoader from "../component/PageLoader";
 
 import 'react-toastify/dist/ReactToastify.css';
  
-// const Company = React.lazy(() => import('../company'));
+const AddCompany = React.lazy(() => import('../company/AddCompany'));
  
 
  
 
 
 function MainRoute() {
- 
+ console.log("inside main route")
   return (
     <div className="app-page">
       <ToastContainer />
@@ -25,8 +25,8 @@ function MainRoute() {
 
       <Suspense fallback={<PageLoader/>}>
       <Switch> 
-        <Route exact path="/search-company" component={PageNotFound} />
-        <Route exact path="/list-company" component={PageNotFound} />
+        <Route exact path="/company/add" component={AddCompany} />
+        <Route exact path="/company/list" component={PageNotFound} />
         
         
         <Route exact path="/*" component={PageNotFound} />

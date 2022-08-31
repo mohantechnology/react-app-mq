@@ -10,11 +10,10 @@ function App() {
   return (
     <div  > 
       <BrowserRouter>
-      <Switch>
-          {/* */}
-          <Route exact path="/admin/*" component={MainRoute}  />
+      <Switch> 
+          <Route exact path="/company/*" component={MainRoute}  />
 
-          <Redirect exact path="/" to="/search-company"  /> 
+          <Redirect exact path="/" to="/company/add"  /> 
           <Route exact path="/*" component={PageNotFound}  />
          
           </Switch>
