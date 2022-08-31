@@ -8,9 +8,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 // import Button as MuiButton from "@mui/material/Button";
 import AddIcon from '@mui/icons-material/Add';
 import { Input, Button, Checkbox } from "antd";
-import sendRequest from '../js/sendRequest'; 
+import sendRequest from '../js/sendRequest';
 import CircularLoader from '../component/CircularLoader';
-
+import { toast } from 'react-toastify';
 import "./ListCompany.css";
 
 import { Avatar, Card } from "antd";
@@ -86,17 +86,16 @@ export default function ({ }) {
   useEffect(() => {
 
     loadPageData();
-
-
-
   }, []);
 
+
+  // load  data from api 
   async function loadPageData(username, password) {
 
     try {
       // set loader 
-      setPageData( <CircularLoader/>);
-     
+      setPageData(<CircularLoader />);
+
       // fetch data 
       let url = process.env.REACT_APP_API_URL + "/company";
       let responseData = await sendRequest.get(url)
@@ -110,16 +109,18 @@ export default function ({ }) {
     };
   }
 
-  function diplayPage(data) { 
 
+  // create table  from data  and display
+  function diplayPage(data) {
+    // neccessary fields
     let companyList = data.map((item, idx) => {
-      
-      item.action = <div key={idx} className="tb-action-ic-bx"> <span id={"ad-cl-id-" + idx}><DeleteIcon /></span>  </div>
+      item.action = <div key={idx} className="tb-action-ic-bx"> <span id={"comp_row-" + item.id} onClick={handleDelete}><DeleteIcon /></span>  </div>
       item.sno = idx + 1;
       item.createdAt = new Date(item.createdAt).toLocaleDateString();
-      return item 
+      return item
     })
- 
+
+    // display table 
     setPageData(<TableComponent
       key='company_table'
       rows={companyList}
@@ -129,9 +130,41 @@ export default function ({ }) {
 
   }
 
+
+  // delete row 
+  async function handleDelete(e) {
+
+    try {
+
+      let id = e.currentTarget.id.split("-").pop();
+      let url = process.env.REACT_APP_API_URL + "/company";
+      let param = JSON.stringify({
+        id: id,
+        companyList: "yes" // add this field to get updated list in response 
+      });
+
+          // set loader 
+          setPageData(<CircularLoader />);
+      let responseData = await sendRequest.delete(param, url, "application/json");
+      responseData = JSON.parse(responseData); 
+      toast.success(responseData.message)
+      diplayPage(responseData.data)
+     
+    }
+    catch (error) {
+      console.error(error);
+      if (typeof error == 'string') {
+        toast.error(JSON.parse(error).message)
+      } else {
+        toast.error("Something Went Wrong")
+      }
+
+    };
+  }
+
   return (
     <div style={{ padding: "20px" }}>
-     
+
       <div className="ad-dsbd-st-mn-bx  comp-list-mn-bx">
         <div className="comp-hd-bx" >
           <p className="ad-dsbd-st-tl"> Company List </p>
