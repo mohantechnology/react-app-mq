@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, NavLink, useLocation } from "react-router-dom";
+import { NavLink, } from "react-router-dom";
 import TableComponent from "../component/TableComponent";
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import { Input, Button, Checkbox } from "antd";
+import { Button } from "antd";
 import sendRequest from '../js/sendRequest';
 import CircularLoader from '../component/CircularLoader';
 import { toast } from 'react-toastify';
 import "./ListCompany.css";
 
-import { Avatar, Card } from "antd";
-const { Meta } = Card;
 const headCells = [
   {
     id: "sno",
@@ -94,9 +92,7 @@ export default function ({ }) {
       // fetch data 
       let url = process.env.REACT_APP_API_URL + "/company";
       let responseData = await sendRequest.get(url)
-      responseData = JSON.parse(responseData);
-      console.log(responseData.data);
-
+      responseData = JSON.parse(responseData); 
       diplayPage(responseData.data)
     }
     catch (error) {
