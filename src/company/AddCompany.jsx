@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch, NavLink, useLocation } from "react-router-dom";
+import { Route, Switch, NavLink, useLocation ,useHistory} from "react-router-dom"; 
+
 // import Button from "@mui/material/Button";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -17,6 +18,9 @@ import "./AddCompany.css";
 
 export default function () {
   const [value, setValue] = React.useState(null);
+ 
+  const history = useHistory();
+  // const location = useLocation();
 
   const onChange = (checkedValues) => {
     console.log("checked = ", checkedValues);
@@ -30,6 +34,11 @@ export default function () {
     setValue(newValue);
     console.log(newValue )
   }
+
+  function handleSubmit (e)  {
+    history.push("/company/list"); 
+  }
+ 
  
   return (
     <div>
@@ -60,14 +69,10 @@ export default function () {
           </div>
 
          <br/>
+      
          <br/>
          <br/>
-         <br/>
-         <br/>
-         <br/>
-         <br/>
-         <br/>
-          <Button type="primary" block>   Submit   </Button>
+          <Button type="primary" block onClick={handleSubmit}>   Submit   </Button>
         </div>
       </div>
       {/* </div> */}
