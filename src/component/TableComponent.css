@@ -1,0 +1,76 @@
+.corp-mang-em-tb-main-box .MuiTablePagination-toolbar {
+  background-color: rgba(196, 196, 196, 0.37);
+  /* padding-right: 10px; */
+}
+
+.corp-mang-em-tb-main-box .MuiTableCell-root {
+  padding: 0px;
+}
+
+.corp-mang-em-tb-main-box .MuiTableCell-root:nth-of-type(1) {
+text-align: center;
+}
+
+.corp-mang-em-tb-main-box .MuiTableCell-root:nth-of-type(2) {
+  padding-left:10px;
+  }
+  
+
+.corp-mang-em-tb-main-box .MuiTablePagination-actions {
+  margin-left: 25%;
+  order: -2;
+}
+
+.corp-mang-em-tb-main-box .MuiIconButton-colorInherit {
+  margin: 0px 28px;
+}
+.corp-mang-em-tb-main-box{
+  margin-top: 30px;
+}
+.cp-mg-md-ass-tb-box {
+  flex: 1;
+}
+
+.font-21 {
+  font-size: 18px;
+}
+.emp-tbl {
+  /* max-width: 1116px; */
+  overflow-x: scroll !important;
+}
+.emp-header {
+  height: 64px !important;
+}
+.cp-emp-table-del-icon{
+  margin-left:15px;
+  margin-right:15px;
+}
+
+/* .tb-comp-hd-tl{ 
+  
+  border:1px solid black ; 
+ 
+}
+
+.tb-comp-hd-tl  p  { 
+  
+  border:1px solid blue  ; 
+  margin:10px; 
+  width:unset; 
+  display:inline-block; 
+  text-align:center ;
+} */
+
+.tb-action-ic-bx span{ 
+
+  padding:4px; 
+  /* border:1px solid blue  ;  */
+  cursor: pointer;
+  color:rgba(29, 25, 25, 0.897) ;
+}
+
+.tb-action-ic-bx span:hover{ 
+
+ 
+  color:rgb(97, 92, 92) ;
+}
